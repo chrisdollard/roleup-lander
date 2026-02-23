@@ -1,0 +1,1633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RoleUp — Your Knowledge, Finally Captured</title>
+<meta name="description" content="Build your professional knowledge profile. Preserve what matters when people move on. RoleUp captures the expertise that no document ever does.">
+
+<!-- Open Graph / Social -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://roleup.me">
+<meta property="og:title" content="RoleUp — Your Knowledge, Finally Captured">
+<meta property="og:description" content="AI-powered knowledge capture that preserves the expertise no document ever covers. Build your professional profile or protect your team's operational wisdom.">
+<meta property="og:site_name" content="RoleUp by ABRAXIS">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RoleUp — Your Knowledge, Finally Captured">
+<meta name="twitter:description" content="AI-powered knowledge capture that preserves the expertise no document ever covers.">
+<meta name="keywords" content="knowledge capture, role continuity, tribal knowledge, tacit knowledge, employee offboarding, onboarding, knowledge transfer, organizational intelligence, professional profile, knowledge management, ABRAXIS, RoleUp">
+<meta name="author" content="ABRAXIS Inc.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://roleup.me">
+
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "RoleUp",
+      "url": "https://roleup.me",
+      "description": "AI-powered knowledge capture platform that preserves organizational expertise and builds portable professional knowledge profiles.",
+      "publisher": { "@type": "Organization", "@id": "https://abraxis.io/#org" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://abraxis.io/#org",
+      "name": "ABRAXIS Inc.",
+      "legalName": "ABRAXIS Inc.",
+      "url": "https://abraxis.io",
+      "description": "Enterprise AI company building organizational intelligence infrastructure.",
+      "foundingDate": "2025",
+      "address": { "@type": "PostalAddress", "streetAddress": "2261 Market Street STE 74409", "addressLocality": "San Francisco", "addressRegion": "CA", "postalCode": "94114", "addressCountry": "US" },
+      "founder": { "@type": "Person", "name": "Chris Dollard", "jobTitle": "Founder & CEO", "email": "chris@abraxis.ai" }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "RoleUp",
+      "url": "https://roleup.me",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "description": "AI-powered knowledge capture platform using structured conversations to surface tacit knowledge, tribal wisdom, workarounds, and judgment patterns.",
+      "offers": [
+        { "@type": "Offer", "name": "Individual Profile", "price": "0", "priceCurrency": "USD", "description": "Free forever for individuals." },
+        { "@type": "Offer", "name": "Team Plan", "description": "Organizational role continuity for teams.", "eligibleCustomerType": "Business" }
+      ],
+      "featureList": ["AI-guided knowledge capture","Solo Capture","Campfire Mode for teams","Structured successor onboarding","Organizational Logic Graph","Portable professional profiles","Multi-modal capture","Expert-in-control privacy","Process drift detection","Cross-role handoff mapping"]
+    },
+    {
+      "@type": "Book",
+      "name": "Soul for the New Machines",
+      "subtitle": "How Role Continuity Preserves & Extends Enterprise Human Intelligence",
+      "author": { "@type": "Person", "name": "Chris Dollard" },
+      "publisher": { "@type": "Organization", "@id": "https://abraxis.io/#org" },
+      "bookFormat": ["https://schema.org/EBook"],
+      "numberOfPages": "60",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is RoleUp?", "acceptedAnswer": { "@type": "Answer", "text": "RoleUp is an AI-powered knowledge capture platform that uses guided conversations to surface the expertise, workarounds, judgment calls, and tribal knowledge that live in experienced practitioners' heads." } },
+        { "@type": "Question", "name": "Who owns the knowledge?", "acceptedAnswer": { "@type": "Answer", "text": "RoleUp separates organizational knowledge from professional knowledge. Organizational knowledge stays with the organization. Professional knowledge belongs to the individual and is portable." } },
+        { "@type": "Question", "name": "What is Campfire Mode?", "acceptedAnswer": { "@type": "Answer", "text": "Campfire Mode gathers multiple team members in facilitated sessions to map cross-role handoffs and shared heuristics. Three modes: Capture, Onboarding, and Ongoing." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,400;1,9..144,600;1,9..144,700&family=Figtree:wght@400;500;600;700&family=Outfit:wght@600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --dark: #1E1B18;
+  --dark-warm: #2C2722;
+  --cream: #FBF7F0;
+  --cream-deep: #F3EDE3;
+  --cream-darker: #E8DFD1;
+  --card: #FFFFFF;
+  --amber: #E8913A;
+  --amber-light: #F2B866;
+  --amber-pale: #FFF4E0;
+  --peach: #F4845F;
+  --peach-light: #FDDDD2;
+  --rose: #C4384B;
+  --rose-pale: #FDE8EB;
+  --teal: #2A8F82;
+  --teal-pale: #E0F5F1;
+  --indigo: #5B52A3;
+  --indigo-pale: #EDEAFC;
+  --text: #1E1B18;
+  --text-mid: #5C5550;
+  --text-light: #8E8780;
+  --border: #E2DCD4;
+  --gold: #D4960A;
+  --gradient-warm: linear-gradient(135deg, #F4845F, #E8913A);
+  --gradient-hot: linear-gradient(135deg, #E8913A, #C4384B);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Figtree', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Grain overlay */
+body::after {
+  content: '';
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 9999;
+  opacity: 0.025;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Type Scale ── */
+h1, h2, h3 { font-family: 'Fraunces', Georgia, serif; }
+
+/* ── Nav ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(251, 247, 240, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(226,220,212,0.6);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center;
+  height: 68px; padding: 0 28px;
+}
+.nav-logo {
+  display: inline-flex; align-items: flex-end;
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px; line-height: 1;
+  text-decoration: none;
+}
+.nav-logo .role { font-weight: 700; color: var(--dark); }
+.nav-logo .up { font-weight: 800; color: var(--amber); transform: translateY(-9px); display: inline-block; }
+.nav-links { display: flex; align-items: center; gap: 32px; }
+.nav-links a {
+  font-size: 14px; font-weight: 500; color: var(--text-mid);
+  text-decoration: none; transition: color 0.25s;
+  letter-spacing: -0.01em;
+}
+.nav-links a:hover { color: var(--dark); }
+.nav-cta {
+  background: var(--dark); color: #fff !important;
+  border-radius: 100px; padding: 10px 22px;
+  font-weight: 600; font-size: 13px !important;
+  letter-spacing: -0.01em;
+  transition: all 0.25s;
+}
+.nav-cta:hover { background: var(--dark-warm); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(30,27,24,0.15); color: #fff !important; }
+
+/* ── Hero ── */
+.hero {
+  padding: 64px 28px 0;
+  position: relative; overflow: hidden;
+}
+/* Decorative blobs */
+.hero-blob-1 {
+  position: absolute; top: -60px; right: -80px;
+  width: 480px; height: 480px;
+  background: radial-gradient(circle, rgba(244,132,95,0.1) 0%, transparent 65%);
+  border-radius: 43% 57% 70% 30% / 46% 40% 60% 54%;
+  animation: morph 20s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-blob-2 {
+  position: absolute; bottom: -120px; left: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(232,145,58,0.08) 0%, transparent 60%);
+  border-radius: 63% 37% 30% 70% / 50% 45% 55% 50%;
+  animation: morph 25s ease-in-out infinite reverse;
+  pointer-events: none;
+}
+@keyframes morph {
+  0%, 100% { border-radius: 43% 57% 70% 30% / 46% 40% 60% 54%; }
+  25% { border-radius: 53% 47% 40% 60% / 36% 60% 40% 64%; }
+  50% { border-radius: 38% 62% 55% 45% / 56% 35% 65% 44%; }
+  75% { border-radius: 48% 52% 45% 55% / 40% 55% 45% 60%; }
+}
+.hero-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 420px;
+  gap: 48px; align-items: center;
+  position: relative; z-index: 1;
+}
+.hero-text { padding: 20px 0 60px; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; font-weight: 600; color: var(--amber);
+  text-transform: uppercase; letter-spacing: 0.12em;
+  margin-bottom: 20px;
+}
+.hero-eyebrow .pulse {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--amber);
+  animation: pulse-glow 2.5s ease infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(232,145,58,0.4); }
+  50% { box-shadow: 0 0 0 8px rgba(232,145,58,0); }
+}
+.hero h1 {
+  font-size: clamp(38px, 5vw, 52px);
+  line-height: 1.08; letter-spacing: -0.03em;
+  color: var(--dark);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+.hero h1 em {
+  font-style: italic; font-weight: 600;
+  color: var(--peach);
+}
+.hero-sub {
+  font-size: 17px; line-height: 1.65;
+  color: var(--text-mid);
+  margin-bottom: 32px; max-width: 480px;
+}
+.hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--dark); color: #fff;
+  border-radius: 100px; padding: 14px 28px;
+  font-size: 15px; font-weight: 600; font-family: 'Figtree', sans-serif;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: all 0.25s; letter-spacing: -0.01em;
+}
+.btn-primary:hover { background: var(--dark-warm); transform: translateY(-2px); box-shadow: 0 6px 24px rgba(30,27,24,0.15); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--text);
+  border: 1.5px solid var(--border);
+  border-radius: 100px; padding: 13px 26px;
+  font-size: 15px; font-weight: 600; font-family: 'Figtree', sans-serif;
+  text-decoration: none; cursor: pointer;
+  transition: all 0.25s; letter-spacing: -0.01em;
+}
+.btn-secondary:hover { border-color: var(--amber); background: var(--amber-pale); }
+
+/* Hero photo placeholder */
+.hero-photo {
+  position: relative; border-radius: 24px;
+  overflow: hidden; aspect-ratio: 0.85;
+  background: linear-gradient(145deg, var(--cream-deep), var(--cream-darker));
+}
+.hero-photo-inner {
+  width: 100%; height: 100%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 32px; text-align: center;
+  position: relative;
+}
+/* Decorative dots pattern */
+.hero-photo::before {
+  content: '';
+  position: absolute; top: 16px; right: 16px;
+  width: 80px; height: 80px;
+  background: radial-gradient(circle, var(--amber) 1.5px, transparent 1.5px);
+  background-size: 12px 12px;
+  opacity: 0.2;
+}
+.hero-photo-badge {
+  background: var(--card); border-radius: 14px;
+  padding: 16px 20px; margin-bottom: 16px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+  border: 1px solid var(--border);
+  width: 100%; max-width: 280px;
+}
+.hpb-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.hpb-avatar {
+  width: 36px; height: 36px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: #fff; flex-shrink: 0;
+}
+.hpb-name { font-size: 14px; font-weight: 600; color: var(--dark); }
+.hpb-role { font-size: 11px; color: var(--text-light); }
+.hpb-bar { height: 6px; border-radius: 3px; background: var(--cream-deep); overflow: hidden; }
+.hpb-fill { height: 100%; border-radius: 3px; background: var(--gradient-warm); }
+.hpb-label { font-size: 10px; color: var(--text-light); margin-top: 4px; text-align: right; }
+.hero-photo-tag {
+  font-size: 11px; color: var(--text-light);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  border-radius: 8px; padding: 8px 14px;
+  border: 1px solid rgba(226,220,212,0.5);
+}
+.hero-photo-tag strong { color: var(--amber); }
+
+/* PHOTO SUGGESTION overlay */
+.photo-suggestion {
+  position: absolute; bottom: 12px; left: 12px; right: 12px;
+  background: rgba(30,27,24,0.85); color: #fff;
+  border-radius: 10px; padding: 10px 14px;
+  font-size: 10px; line-height: 1.4;
+  backdrop-filter: blur(8px);
+  display: none; /* toggle to show during dev */
+}
+.photo-suggestion strong { color: var(--amber-light); }
+
+/* ── Stats ribbon ── */
+.stats-ribbon {
+  padding: 32px 28px;
+  position: relative; z-index: 1;
+}
+.stats-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: center; gap: 48px; flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat-num {
+  font-family: 'Fraunces', serif;
+  font-size: 36px; font-weight: 700; color: var(--dark);
+  letter-spacing: -0.03em; line-height: 1;
+  display: block; margin-bottom: 8px;
+}
+.stat-label {
+  font-size: 13px; color: var(--text-light);
+  display: block; max-width: 150px; line-height: 1.4;
+}
+
+/* ── Wave divider ── */
+.wave-divider { width: 100%; overflow: hidden; line-height: 0; }
+.wave-divider svg { width: 100%; height: 48px; display: block; }
+.wave-up svg { transform: rotate(180deg); }
+
+/* ── Two Audiences ── */
+.audiences { padding: 60px 28px 80px; background: var(--card); position: relative; }
+.audiences-inner { max-width: 1100px; margin: 0 auto; }
+.audiences-header { text-align: center; margin-bottom: 52px; }
+.audiences-header h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  letter-spacing: -0.03em; color: var(--dark);
+  margin-bottom: 12px; font-weight: 700;
+}
+.audiences-header h2 em { font-style: italic; color: var(--peach); font-weight: 600; }
+.audiences-header p {
+  font-size: 17px; color: var(--text-mid); max-width: 500px; margin: 0 auto; line-height: 1.6;
+}
+.aud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+
+.aud-card {
+  border-radius: 24px; padding: 40px 36px;
+  position: relative; overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.aud-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+}
+.aud-card.ind {
+  background: linear-gradient(160deg, #FFF9F0 0%, #FFF4E0 100%);
+  border: 1.5px solid rgba(232,145,58,0.15);
+}
+.aud-card.org {
+  background: linear-gradient(160deg, #FFF5F2 0%, #FDDDD2 100%);
+  border: 1.5px solid rgba(244,132,95,0.15);
+}
+/* Decorative corner accent */
+.aud-card::before {
+  content: '';
+  position: absolute; top: -40px; right: -40px;
+  width: 120px; height: 120px; border-radius: 50%;
+}
+.aud-card.ind::before { background: rgba(232,145,58,0.08); }
+.aud-card.org::before { background: rgba(244,132,95,0.08); }
+.aud-card::after {
+  content: ''; position: absolute; bottom: -30px; left: -30px;
+  width: 80px; height: 80px; border-radius: 50%;
+}
+.aud-card.ind::after { background: rgba(212,150,10,0.06); }
+.aud-card.org::after { background: rgba(196,56,75,0.05); }
+
+.aud-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; margin-bottom: 16px;
+}
+.aud-eyebrow.ind { color: var(--amber); }
+.aud-eyebrow.org { color: var(--peach); }
+.aud-icon {
+  width: 28px; height: 28px; border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+}
+.aud-icon.ind { background: rgba(232,145,58,0.15); }
+.aud-icon.org { background: rgba(244,132,95,0.15); }
+.aud-card h3 {
+  font-size: 26px; letter-spacing: -0.02em;
+  color: var(--dark); margin-bottom: 12px;
+  font-weight: 700; line-height: 1.15;
+}
+.aud-card > p {
+  font-size: 15px; color: var(--text-mid);
+  line-height: 1.65; margin-bottom: 24px;
+}
+.aud-features {
+  list-style: none; display: flex; flex-direction: column; gap: 10px;
+  margin-bottom: 28px;
+}
+.aud-features li {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 14px; color: var(--text-mid); line-height: 1.5;
+}
+.aud-check {
+  width: 20px; height: 20px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px;
+}
+.aud-check.ind { background: rgba(232,145,58,0.15); }
+.aud-check.org { background: rgba(244,132,95,0.15); }
+.aud-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border-radius: 100px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  border: none; transition: all 0.25s;
+  text-decoration: none; font-family: 'Figtree', sans-serif;
+  letter-spacing: -0.01em;
+}
+.aud-cta.ind { background: var(--dark); color: #fff; }
+.aud-cta.ind:hover { background: var(--dark-warm); transform: translateY(-1px); }
+.aud-cta.org { background: var(--gradient-hot); color: #fff; }
+.aud-cta.org:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,56,75,0.2); }
+.aud-free {
+  font-size: 12px; color: var(--text-light); margin-top: 14px;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* ── How It Works ── */
+.how { padding: 80px 28px; position: relative; }
+.how-inner { max-width: 1100px; margin: 0 auto; }
+.how-header { text-align: center; margin-bottom: 56px; }
+.how-header h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  letter-spacing: -0.03em; color: var(--dark); margin-bottom: 12px; font-weight: 700;
+}
+.how-header h2 em { font-style: italic; color: var(--peach); font-weight: 600; }
+
+.how-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; position: relative; }
+/* Connecting line */
+.how-steps::before {
+  content: ''; position: absolute;
+  top: 44px; left: 16%; right: 16%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--amber-pale), var(--peach-light), var(--teal-pale));
+}
+.how-step {
+  text-align: center; position: relative; z-index: 1;
+}
+.step-icon {
+  width: 88px; height: 88px; border-radius: 24px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 20px; position: relative;
+  font-size: 36px;
+}
+.step-icon.s1 { background: var(--amber-pale); }
+.step-icon.s2 { background: var(--peach-light); }
+.step-icon.s3 { background: var(--teal-pale); }
+/* Small number badge */
+.step-icon .step-num {
+  position: absolute; top: -6px; right: -6px;
+  width: 24px; height: 24px; border-radius: 50%;
+  font-family: 'Fraunces', serif; font-size: 13px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  color: #fff;
+}
+.step-icon.s1 .step-num { background: var(--amber); }
+.step-icon.s2 .step-num { background: var(--peach); }
+.step-icon.s3 .step-num { background: var(--teal); }
+.how-step h3 { font-size: 20px; color: var(--dark); margin-bottom: 8px; letter-spacing: -0.01em; }
+.how-step p { font-size: 14px; color: var(--text-mid); line-height: 1.6; max-width: 300px; margin: 0 auto; }
+
+/* ── Campfire ── */
+.campfire {
+  padding: 80px 28px;
+  background: linear-gradient(165deg, #FFF8F3 0%, #FEF0E8 50%, #FDDDD2 100%);
+  position: relative; overflow: hidden;
+}
+/* Organic background blob */
+.campfire-bg-blob {
+  position: absolute; top: -100px; right: -120px;
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(232,93,38,0.06) 0%, transparent 60%);
+  border-radius: 50%; pointer-events: none;
+}
+.campfire-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+  position: relative; z-index: 1;
+}
+.campfire-text h2 {
+  font-size: clamp(28px, 3.5vw, 36px);
+  letter-spacing: -0.02em; color: var(--dark);
+  margin-bottom: 16px; font-weight: 700; line-height: 1.15;
+}
+.campfire-text h2 span { color: #C84A20; font-style: italic; font-weight: 600; }
+.campfire-text > p {
+  font-size: 16px; color: var(--text-mid); line-height: 1.7; margin-bottom: 28px;
+}
+.cf-modes { display: flex; flex-direction: column; gap: 10px; }
+.cf-mode {
+  display: flex; align-items: center; gap: 14px;
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(226,220,212,0.5);
+  border-radius: 14px; padding: 14px 18px;
+  transition: all 0.25s;
+}
+.cf-mode:hover { background: rgba(255,255,255,0.95); border-color: #C84A20; }
+.cf-mode-icon {
+  width: 42px; height: 42px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 20px;
+}
+.cf-mode-icon.capture { background: rgba(200,74,32,0.1); }
+.cf-mode-icon.onboard { background: var(--indigo-pale); }
+.cf-mode-icon.ongoing { background: var(--teal-pale); }
+.cf-mode-title { font-size: 14px; font-weight: 700; color: var(--dark); }
+.cf-mode-desc { font-size: 12px; color: var(--text-light); }
+
+/* Campfire visual */
+.cf-visual { display: flex; align-items: center; justify-content: center; position: relative; min-height: 380px; }
+.cf-ring {
+  width: 260px; height: 260px; border-radius: 50%;
+  border: 2px dashed rgba(200,74,32,0.2);
+  position: relative;
+  animation: cf-spin 45s linear infinite;
+}
+@keyframes cf-spin { to { transform: rotate(360deg); } }
+.cf-person {
+  position: absolute;
+  width: 48px; height: 48px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+  animation: cf-spin 45s linear infinite reverse;
+  border: 3px solid rgba(255,255,255,0.8);
+}
+.cf-person:nth-child(1) { top: -24px; left: 50%; transform: translateX(-50%); background: var(--teal); }
+.cf-person:nth-child(2) { bottom: -24px; left: 50%; transform: translateX(-50%); background: var(--indigo); }
+.cf-person:nth-child(3) { top: 50%; right: -24px; transform: translateY(-50%); background: #C84A20; }
+.cf-center {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 72px; height: 72px; border-radius: 50%;
+  background: var(--gradient-hot);
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 40px rgba(200,74,32,0.2);
+  z-index: 2;
+}
+.cf-center span {
+  font-family: 'Outfit', sans-serif;
+  font-size: 11px; font-weight: 800; color: #fff;
+  letter-spacing: 0.12em;
+}
+.cf-pulse-ring {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid rgba(200,74,32,0.12);
+  animation: cf-pulse 3s ease-out infinite;
+}
+.cf-pulse-ring.d2 { animation-delay: 1s; }
+.cf-pulse-ring.d3 { animation-delay: 2s; }
+@keyframes cf-pulse {
+  0% { width: 72px; height: 72px; opacity: 0.4; }
+  100% { width: 180px; height: 180px; opacity: 0; }
+}
+.cf-legend {
+  position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 18px; white-space: nowrap;
+}
+.cf-legend-item { display: flex; align-items: center; gap: 8px; }
+.cf-legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.cf-legend-name { font-size: 12px; font-weight: 600; color: var(--text); line-height: 1.2; }
+.cf-legend-role { font-size: 10px; color: var(--text-light); line-height: 1.2; }
+
+/* ── Book Section ── */
+.book { padding: 80px 28px; position: relative; overflow: hidden; }
+.book-blob {
+  position: absolute; top: -80px; left: -80px;
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(196,56,75,0.04) 0%, transparent 60%);
+  border-radius: 50%; pointer-events: none;
+}
+.book-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 360px 1fr;
+  gap: 64px; align-items: center;
+  position: relative; z-index: 1;
+}
+.book-cover-iframe {
+  width: 100%; max-width: 300px;
+  aspect-ratio: 0.68;
+  border: none; border-radius: 4px 20px 20px 4px;
+  box-shadow: 0 24px 60px rgba(30,27,24,0.3);
+  display: block; margin: 0 auto;
+  pointer-events: none;
+}
+.book-badge {
+  position: absolute; top: -10px; right: -10px;
+  background: var(--amber); color: var(--dark);
+  font-size: 11px; font-weight: 700;
+  padding: 5px 14px; border-radius: 100px;
+  box-shadow: 0 4px 12px rgba(232,145,58,0.3);
+  font-family: 'Figtree', sans-serif;
+  z-index: 2;
+}
+
+.book-text h2 {
+  font-size: clamp(26px, 3.5vw, 36px);
+  letter-spacing: -0.02em; color: var(--dark);
+  margin-bottom: 16px; font-weight: 700; line-height: 1.15;
+}
+.book-text h2 em { font-style: italic; color: var(--rose); font-weight: 600; }
+.book-text > p {
+  font-size: 16px; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px;
+}
+.book-quote {
+  border-left: 3px solid var(--amber);
+  padding: 16px 20px; margin-bottom: 28px;
+  background: var(--amber-pale);
+  border-radius: 0 14px 14px 0;
+}
+.book-quote p {
+  font-family: 'Fraunces', serif;
+  font-size: 16px; font-style: italic; font-weight: 400;
+  color: var(--text-mid); line-height: 1.55; margin-bottom: 8px;
+}
+.book-quote cite { font-size: 12px; color: var(--text-light); font-style: normal; font-weight: 600; }
+.book-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--gradient-hot); color: #fff;
+  padding: 14px 28px; border-radius: 100px;
+  font-size: 15px; font-weight: 600;
+  border: none; cursor: pointer;
+  transition: all 0.25s;
+  text-decoration: none; font-family: 'Figtree', sans-serif;
+}
+.book-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(196,56,75,0.2); }
+.book-meta {
+  display: flex; gap: 20px; margin-top: 14px;
+}
+.book-meta span { font-size: 12px; color: var(--text-light); display: flex; align-items: center; gap: 4px; }
+
+/* ── Privacy ── */
+.privacy {
+  padding: 48px 28px;
+  background: var(--card);
+}
+.privacy-inner {
+  max-width: 800px; margin: 0 auto;
+  display: flex; align-items: center; gap: 20px;
+}
+.privacy-icon {
+  width: 56px; height: 56px; border-radius: 16px;
+  background: var(--amber-pale);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 24px;
+}
+.privacy h3 { font-size: 17px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+.privacy p { font-size: 14px; color: var(--text-mid); line-height: 1.6; }
+
+/* ── Final CTA ── */
+.final { padding: 80px 28px; text-align: center; }
+.final h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  letter-spacing: -0.03em; color: var(--dark);
+  margin-bottom: 12px; font-weight: 700;
+}
+.final h2 em { font-style: italic; color: var(--peach); font-weight: 600; }
+.final > p {
+  font-size: 16px; color: var(--text-mid);
+  max-width: 480px; margin: 0 auto 36px; line-height: 1.6;
+}
+.final-cards {
+  display: flex; gap: 24px;
+  justify-content: center; flex-wrap: wrap;
+  max-width: 860px; margin: 0 auto;
+}
+.final-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 20px; padding: 32px 28px;
+  flex: 1; min-width: 300px; max-width: 420px;
+  text-align: center; transition: all 0.3s;
+}
+.final-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+}
+.final-card h3 {
+  font-size: 20px; font-weight: 700; color: var(--dark); margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.final-card > p {
+  font-size: 14px; color: var(--text-mid); line-height: 1.5; margin-bottom: 20px;
+}
+.fc-icon {
+  width: 52px; height: 52px; border-radius: 16px;
+  display: flex; align-items: center; justify-content: center;
+  margin: 0 auto 16px; font-size: 24px;
+}
+.fc-icon.ind { background: var(--amber-pale); }
+.fc-icon.org { background: var(--peach-light); }
+
+/* Individual form */
+.fc-input-row { display: flex; gap: 8px; }
+.fc-input {
+  flex: 1; padding: 12px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 100px; font-size: 14px;
+  font-family: 'Figtree', sans-serif;
+  background: var(--cream); color: var(--dark);
+  outline: none; transition: border-color 0.2s;
+}
+.fc-input:focus { border-color: var(--amber); }
+.fc-btn {
+  padding: 12px 22px; border: none; border-radius: 100px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: all 0.2s; flex-shrink: 0;
+  font-family: 'Figtree', sans-serif;
+}
+.fc-btn.ind { background: var(--dark); color: #fff; }
+.fc-btn.ind:hover { background: var(--dark-warm); }
+
+/* Rich org form */
+.org-form-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px; margin-bottom: 10px;
+}
+.org-form-grid .full { grid-column: 1 / -1; }
+.org-field {
+  padding: 11px 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 12px; font-size: 13px;
+  font-family: 'Figtree', sans-serif;
+  background: var(--cream); color: var(--dark);
+  outline: none; transition: border-color 0.2s;
+  width: 100%;
+}
+.org-field::placeholder { color: var(--text-light); }
+.org-field:focus { border-color: var(--peach); }
+.org-submit {
+  width: 100%; padding: 13px 0;
+  border: none; border-radius: 100px;
+  font-size: 15px; font-weight: 700; cursor: pointer;
+  font-family: 'Figtree', sans-serif;
+  background: var(--gradient-hot); color: #fff;
+  transition: all 0.2s;
+}
+.org-submit:hover { box-shadow: 0 4px 20px rgba(196,56,75,0.25); transform: translateY(-1px); }
+.org-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+
+/* Shared form elements */
+.fc-confirm {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--teal-pale); border-radius: 12px;
+  padding: 12px 16px; margin-top: 10px;
+  font-size: 13px; color: var(--teal); font-weight: 500;
+}
+.fc-confirm em { font-style: italic; font-weight: 600; }
+.fc-note {
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px; margin-top: 12px;
+  font-size: 11px; color: var(--text-light);
+}
+.fc-book-bonus {
+  display: flex; align-items: center; justify-content: center;
+  gap: 8px; margin-top: 12px;
+  background: var(--peach-light);
+  border: 1px solid rgba(244,132,95,0.2);
+  border-radius: 10px; padding: 10px 14px;
+  font-size: 12px; color: var(--text-mid); font-weight: 500;
+}
+.fc-book-bonus em { font-style: italic; color: var(--rose); font-weight: 600; }
+.mc-form { position: relative; }
+.fc-btn:disabled, .org-submit:disabled { opacity: 0.6; cursor: not-allowed; }
+.spinner {
+  display: inline-block; width: 14px; height: 14px;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-top-color: #fff; border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Deep Dives ── */
+.deep {
+  padding: 80px 28px; position: relative; overflow: hidden;
+}
+.deep.ind-bg {
+  background: linear-gradient(170deg, #FFFBF5 0%, #FFF4E0 100%);
+}
+.deep.org-bg {
+  background: linear-gradient(170deg, #FFF7F4 0%, #FEEEE8 100%);
+}
+.deep-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+}
+.deep-inner.flip { direction: rtl; }
+.deep-inner.flip > * { direction: ltr; }
+.deep-text h2 {
+  font-size: clamp(26px, 3.5vw, 34px);
+  letter-spacing: -0.02em; color: var(--dark);
+  margin-bottom: 16px; font-weight: 700; line-height: 1.15;
+}
+.deep-text h2 em { font-style: italic; font-weight: 600; }
+.deep-text h2 em.amber { color: var(--amber); }
+.deep-text h2 em.peach { color: var(--peach); }
+.deep-text > p {
+  font-size: 15px; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px;
+}
+.deep-features {
+  list-style: none; display: flex; flex-direction: column; gap: 16px; margin-bottom: 28px;
+}
+.deep-feature {
+  display: flex; gap: 14px; align-items: flex-start;
+}
+.df-icon {
+  width: 40px; height: 40px; border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 18px;
+}
+.df-icon.amber { background: var(--amber-pale); }
+.df-icon.peach { background: var(--peach-light); }
+.df-icon.teal { background: var(--teal-pale); }
+.df-icon.indigo { background: var(--indigo-pale); }
+.df-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+.df-desc { font-size: 13px; color: var(--text-mid); line-height: 1.5; }
+.deep-cta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 13px 26px; border-radius: 100px;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  border: none; text-decoration: none; font-family: 'Figtree', sans-serif;
+  transition: all 0.25s;
+}
+.deep-cta.ind { background: var(--dark); color: #fff; }
+.deep-cta.ind:hover { background: var(--dark-warm); transform: translateY(-1px); }
+.deep-cta.org { background: var(--gradient-hot); color: #fff; }
+.deep-cta.org:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(196,56,75,0.2); }
+
+/* Mock UI cards */
+.mock-ui {
+  background: var(--card); border-radius: 20px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.06);
+  overflow: hidden; position: relative;
+}
+.mock-titlebar {
+  display: flex; align-items: center; gap: 6px;
+  padding: 12px 16px; border-bottom: 1px solid var(--border);
+  background: var(--cream);
+}
+.mock-dot { width: 8px; height: 8px; border-radius: 50%; }
+.mock-dot.r { background: #F87171; }
+.mock-dot.y { background: #FBBF24; }
+.mock-dot.g { background: #34D399; }
+.mock-titlebar span { font-size: 11px; color: var(--text-light); margin-left: 8px; font-weight: 500; }
+.mock-body { padding: 20px; }
+
+/* Profile mock */
+.profile-header {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+  padding-bottom: 16px; border-bottom: 1px solid var(--border);
+}
+.profile-avatar {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--gradient-warm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; color: #fff;
+}
+.profile-name { font-size: 16px; font-weight: 700; color: var(--dark); }
+.profile-title { font-size: 12px; color: var(--text-light); }
+.profile-domains {
+  display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px;
+}
+.profile-domain {
+  font-size: 11px; font-weight: 600; padding: 5px 12px;
+  border-radius: 100px;
+}
+.profile-domain.d1 { background: var(--amber-pale); color: #B87514; }
+.profile-domain.d2 { background: var(--teal-pale); color: #1A6B62; }
+.profile-domain.d3 { background: var(--indigo-pale); color: #4A419C; }
+.profile-domain.d4 { background: var(--peach-light); color: #A84030; }
+.profile-section-label {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--text-light); margin-bottom: 8px;
+}
+.profile-items { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+.profile-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: var(--text-mid);
+  padding: 8px 12px; border-radius: 10px;
+  background: var(--cream); border: 1px solid transparent;
+  transition: border-color 0.2s;
+}
+.profile-item:hover { border-color: var(--border); }
+.pi-icon { font-size: 14px; flex-shrink: 0; }
+.pi-bar { height: 4px; border-radius: 2px; background: var(--cream-deeper); flex: 1; margin-left: auto; min-width: 40px; max-width: 80px; overflow: hidden; }
+.pi-fill { height: 100%; border-radius: 2px; }
+.pi-fill.high { background: var(--teal); width: 85%; }
+.pi-fill.med { background: var(--amber); width: 60%; }
+.pi-fill.low { background: var(--indigo); width: 40%; }
+.profile-portable {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 14px; border-radius: 12px;
+  background: var(--teal-pale); font-size: 11px; color: var(--teal); font-weight: 600;
+}
+
+/* Team capture mock */
+.capture-timeline { display: flex; flex-direction: column; gap: 0; }
+.ct-step {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 12px 0; position: relative;
+}
+.ct-step:not(:last-child) { border-left: 2px solid var(--cream-deeper); margin-left: 15px; padding-left: 26px; }
+.ct-step:last-child { margin-left: 15px; padding-left: 26px; }
+.ct-dot {
+  position: absolute; left: -7px; top: 14px;
+  width: 12px; height: 12px; border-radius: 50%;
+  border: 2px solid var(--card);
+}
+.ct-dot.active { background: var(--peach); box-shadow: 0 0 0 3px var(--peach-light); }
+.ct-dot.done { background: var(--teal); }
+.ct-dot.pending { background: var(--cream-darker); }
+.ct-content {}
+.ct-title { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+.ct-desc { font-size: 11px; color: var(--text-light); line-height: 1.4; }
+.ct-badge {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-size: 10px; font-weight: 600; padding: 3px 10px;
+  border-radius: 100px; margin-top: 4px;
+}
+.ct-badge.done { background: var(--teal-pale); color: var(--teal); }
+.ct-badge.active { background: var(--peach-light); color: #B5442F; }
+.ct-badge.pending { background: var(--cream-deep); color: var(--text-light); }
+.ct-team-row {
+  display: flex; gap: 6px; margin-top: 6px;
+}
+.ct-mini-avatar {
+  width: 22px; height: 22px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8px; font-weight: 700; color: #fff;
+  border: 2px solid var(--card);
+}
+.ct-result {
+  margin-top: 12px; padding: 12px 14px; border-radius: 12px;
+  background: var(--teal-pale); border: 1px solid rgba(42,143,130,0.15);
+}
+.ct-result-title { font-size: 11px; font-weight: 700; color: var(--teal); margin-bottom: 6px; }
+.ct-result-stats { display: flex; gap: 16px; }
+.ct-stat { text-align: center; }
+.ct-stat-num { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; color: var(--dark); line-height: 1; }
+.ct-stat-label { font-size: 9px; color: var(--text-light); margin-top: 2px; }
+
+@media (max-width: 900px) {
+  .deep-inner, .deep-inner.flip { grid-template-columns: 1fr; direction: ltr; }
+  .deep-inner > .mock-ui { order: -1; max-width: 400px; margin: 0 auto; }
+}
+
+/* ── Footer ── */
+footer {
+  padding: 40px 28px;
+  border-top: 1px solid var(--border);
+  text-align: center;
+}
+.footer-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px; margin-bottom: 6px;
+  display: inline-flex; align-items: flex-end;
+}
+.footer-logo .role { font-weight: 700; color: var(--dark); }
+.footer-logo .up { font-weight: 800; color: var(--amber); transform: translateY(-7px); display: inline-block; }
+.footer-by {
+  font-size: 11px; color: var(--text-light);
+  letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px;
+}
+.footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 10px; }
+.footer-links a { font-size: 13px; color: var(--text-light); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--dark); }
+.footer-copy { font-size: 12px; color: var(--text-light); }
+
+/* ── Animations ── */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-photo { max-width: 360px; margin: 0 auto; }
+  .hero-text { padding-bottom: 32px; }
+  .aud-grid { grid-template-columns: 1fr; }
+  .campfire-inner { grid-template-columns: 1fr; gap: 40px; }
+  .cf-visual { order: -1; }
+  .cf-legend { flex-wrap: wrap; justify-content: center; }
+  .book-inner { grid-template-columns: 1fr; gap: 40px; }
+  .book-cover-iframe { max-width: 260px; }
+  .how-steps { grid-template-columns: 1fr; gap: 36px; }
+  .how-steps::before { display: none; }
+}
+@media (max-width: 640px) {
+  .nav-links a:not(.nav-cta) { display: none; }
+  .hero { padding-top: 40px; }
+  .hero h1 { font-size: 32px; }
+  .stats-inner { gap: 24px; }
+  .privacy-inner { flex-direction: column; text-align: center; }
+  .final-cards { flex-direction: column; align-items: center; }
+  .final-card { max-width: none; width: 100%; }
+  .org-form-grid { grid-template-columns: 1fr; }
+  .org-form-grid .full { grid-column: auto; }
+  .hero-ctas { flex-direction: column; }
+  .hero-ctas .btn-primary, .hero-ctas .btn-secondary { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo"><span class="role">role</span><span class="up">up</span></a>
+    <div class="nav-links">
+      <a href="#individuals">For You</a>
+      <a href="#teams">For Teams</a>
+      <a href="#campfire">Campfire</a>
+      <a href="#book">The Book</a>
+      <a href="https://thehumanlayer.substack.com" target="_blank">Blog</a>
+      <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero" id="top">
+  <div class="hero-blob-1"></div>
+  <div class="hero-blob-2"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow reveal"><span class="pulse"></span> Early access opening soon</div>
+      <h1 class="reveal">Your expertise deserves more than <em>a goodbye email</em></h1>
+      <p class="hero-sub reveal">RoleUp captures the knowledge that lives in your head — the workarounds, judgment calls, and tribal wisdom no document ever covers. Build your professional legacy, or preserve your team's.</p>
+      <div class="hero-ctas reveal">
+        <a href="#individuals" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          I'm an individual
+        </a>
+        <a href="#teams" class="btn-secondary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          I lead a team
+        </a>
+      </div>
+    </div>
+    <div class="hero-photo reveal">
+      <div class="hero-photo-inner">
+        <!-- UI mock showing knowledge capture in action -->
+        <div class="hero-photo-badge">
+          <div class="hpb-row">
+            <div class="hpb-avatar" style="background: var(--teal);">SM</div>
+            <div>
+              <div class="hpb-name">Sarah Mitchell</div>
+              <div class="hpb-role">Sr. Asset Recovery · 14 years</div>
+            </div>
+          </div>
+          <div class="hpb-bar"><div class="hpb-fill" style="width: 67%;"></div></div>
+          <div class="hpb-label">67% captured</div>
+        </div>
+        <div class="hero-photo-badge" style="opacity: 0.7; transform: scale(0.95);">
+          <div class="hpb-row">
+            <div class="hpb-avatar" style="background: var(--indigo);">RP</div>
+            <div>
+              <div class="hpb-name">Raj Patel</div>
+              <div class="hpb-role">Procurement Lead · 9 years</div>
+            </div>
+          </div>
+          <div class="hpb-bar"><div class="hpb-fill" style="width: 34%; background: var(--gradient-hot);"></div></div>
+          <div class="hpb-label">34% captured</div>
+        </div>
+        <div class="hero-photo-tag" style="margin-top: 12px;">
+          <strong>4 topics</strong> in progress · <strong>23 items</strong> captured
+        </div>
+      </div>
+      <!--
+        PHOTO ALTERNATIVES — replace the UI mock above with a real photo:
+        ════════════════════════════════════════════════════════════
+        Search Vecteezy for:
+        • "mentor explaining to colleague warm office" 
+        • "experienced worker teaching younger employee" 
+        • "team collaboration whiteboard casual"
+        • "knowledge sharing meeting diverse team"
+        • "senior employee laptop handover office"
+        
+        Use as: <img src="photo.jpg" alt="..." style="width:100%; height:100%; object-fit:cover;">
+        Replace the entire .hero-photo-inner div.
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats-ribbon">
+  <div class="stats-inner">
+    <div class="stat reveal"><span class="stat-num">42%</span><span class="stat-label">of role knowledge is undocumented</span></div>
+    <div class="stat reveal"><span class="stat-num">8–12 mo</span><span class="stat-label">for a replacement to reach full speed</span></div>
+    <div class="stat reveal"><span class="stat-num">3.9 yr</span><span class="stat-label">median tenure — lowest in two decades</span></div>
+  </div>
+</div>
+
+<!-- Wave into white -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none">
+    <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,48 L0,48 Z" fill="#FFFFFF"/>
+  </svg>
+</div>
+
+<!-- Two Audiences -->
+<section class="audiences" id="individuals">
+  <div class="audiences-inner">
+    <div class="audiences-header">
+      <h2 class="reveal">One platform.<br><em>Two powerful purposes.</em></h2>
+      <p class="reveal">Whether you're preserving your own expertise or protecting your team's, RoleUp works for you.</p>
+    </div>
+    <div class="aud-grid">
+      <!-- Individual -->
+      <div class="aud-card ind reveal">
+        <div class="aud-eyebrow ind">
+          <div class="aud-icon ind"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E8913A" stroke-width="2.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+          For Individuals
+        </div>
+        <h3>Your knowledge, finally articulated</h3>
+        <p>You've spent years building expertise that lives only in your head. RoleUp captures it — not as a document, but as a living professional profile that grows with your career.</p>
+        <ul class="aud-features">
+          <li><span class="aud-check ind"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8913A" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>AI-guided conversations surface knowledge you didn't know you had</li>
+          <li><span class="aud-check ind"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8913A" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Your professional expertise stays yours — always portable, always private</li>
+          <li><span class="aud-check ind"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8913A" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Verified knowledge profile richer than any resume</li>
+          <li><span class="aud-check ind"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#E8913A" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Leave your legacy — make your successor's life easier</li>
+        </ul>
+        <a href="#deep-individual" class="aud-cta ind">Build My Profile →</a>
+        <div class="aud-free">🛡 Free for individuals. Your data, your control.</div>
+      </div>
+      <!-- Org -->
+      <div class="aud-card org reveal" id="teams">
+        <div class="aud-eyebrow org">
+          <div class="aud-icon org"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          For Teams & Organizations
+        </div>
+        <h3>Stop losing what your people know</h3>
+        <p>Every departure is a knowledge extinction event. RoleUp captures the workarounds, relationships, and judgment calls that walk out the door — and turns them into structured onboarding for whoever comes next.</p>
+        <ul class="aud-features">
+          <li><span class="aud-check org"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Capture role-specific knowledge before departures, not after</li>
+          <li><span class="aud-check org"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Campfire Mode maps cross-team handoffs and tribal knowledge</li>
+          <li><span class="aud-check org"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>Cut onboarding time from months to weeks</li>
+          <li><span class="aud-check org"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#F4845F" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>No IT approval needed — any manager can start in minutes</li>
+        </ul>
+        <a href="#deep-teams" class="aud-cta org">Protect My Team →</a>
+        <div class="aud-free">💼 Free tier for small teams. Enterprise plans available.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave out of white -->
+<div class="wave-divider wave-up">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none">
+    <path d="M0,24 C360,0 720,48 1080,24 C1260,12 1380,36 1440,24 L1440,48 L0,48 Z" fill="#FFFFFF"/>
+  </svg>
+</div>
+
+<!-- How It Works -->
+<section class="how">
+  <div class="how-inner">
+    <div class="how-header">
+      <h2 class="reveal">Simple as a <em>conversation</em></h2>
+      <p class="reveal" style="font-size:16px; color:var(--text-mid); max-width:460px; margin:0 auto; line-height:1.6;">No templates. No 50-page forms. Just talk through your role naturally.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step reveal">
+        <div class="step-icon s1">
+          🎙️
+          <div class="step-num">1</div>
+        </div>
+        <h3>Capture</h3>
+        <p>AI-guided conversations surface the knowledge exit interviews miss — not just what you do, but why and who to call when things break.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-icon s2">
+          🧠
+          <div class="step-num">2</div>
+        </div>
+        <h3>Model</h3>
+        <p>Every insight builds a living knowledge graph — decision patterns, relationship maps, exception handling, and veteran judgment.</p>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-icon s3">
+          🚀
+          <div class="step-num">3</div>
+        </div>
+        <h3>Transfer</h3>
+        <p>Successors inherit accumulated intelligence — context-aware guidance, not a binder. Coaching in the water, not reading about swimming.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- Deep Dive: Individuals                      -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="deep ind-bg" id="deep-individual">
+  <div class="deep-inner">
+    <div class="deep-text">
+      <h2 class="reveal">A knowledge profile that's <em class="amber">actually yours</em></h2>
+      <p class="reveal">Resumes list job titles. LinkedIn lists skills you clicked a button for. RoleUp captures how you actually think — the judgment calls, pattern recognition, and hard-won heuristics that make you irreplaceable. And it stays with you, employer to employer, forever.</p>
+      <ul class="deep-features">
+        <li class="deep-feature reveal">
+          <div class="df-icon amber">🧠</div>
+          <div><div class="df-title">AI surfaces what you don't realize you know</div><div class="df-desc">Guided conversations dig into your decision-making, not just your task list. "What do you check first when X goes wrong?" "How do you know when a vendor is bluffing?"</div></div>
+        </li>
+        <li class="deep-feature reveal">
+          <div class="df-icon teal">🔒</div>
+          <div><div class="df-title">Portable. Private. Permanently yours.</div><div class="df-desc">Your professional knowledge belongs to you — not your employer. Take it when you leave, share it when you choose, delete it whenever you want.</div></div>
+        </li>
+        <li class="deep-feature reveal">
+          <div class="df-icon indigo">📊</div>
+          <div><div class="df-title">A verified record, not a self-assessment</div><div class="df-desc">Every captured insight links back to the role, context, and domain where you demonstrated it. Richer than any endorsement. More credible than any skills quiz.</div></div>
+        </li>
+        <li class="deep-feature reveal">
+          <div class="df-icon amber">🌱</div>
+          <div><div class="df-title">Grows with every role</div><div class="df-desc">Each position adds to your professional knowledge graph. Ten years in, you have a structured map of everything you've learned — not scattered across old notebooks and forgotten drives.</div></div>
+        </li>
+      </ul>
+      <a href="#waitlist-individual" class="deep-cta ind reveal">Join the Individual Waitlist →</a>
+    </div>
+    <!-- Mock: Knowledge Profile UI -->
+    <div class="mock-ui reveal">
+      <div class="mock-titlebar">
+        <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+        <span>roleup.me/profile</span>
+      </div>
+      <div class="mock-body">
+        <div class="profile-header">
+          <div class="profile-avatar">SM</div>
+          <div>
+            <div class="profile-name">Sarah Mitchell</div>
+            <div class="profile-title">Sr. Asset Recovery · 3 roles · 14 years</div>
+          </div>
+        </div>
+        <div class="profile-domains">
+          <span class="profile-domain d1">Asset Valuation</span>
+          <span class="profile-domain d2">Vendor Negotiation</span>
+          <span class="profile-domain d3">Risk Assessment</span>
+          <span class="profile-domain d4">Regulatory Compliance</span>
+        </div>
+        <div class="profile-section-label">Captured Heuristics</div>
+        <div class="profile-items">
+          <div class="profile-item">
+            <span class="pi-icon">⚡</span>
+            <span>Always check lien status before valuation — saves 2 weeks</span>
+            <div class="pi-bar"><div class="pi-fill high"></div></div>
+          </div>
+          <div class="profile-item">
+            <span class="pi-icon">🤝</span>
+            <span>Counter-offer below 60% only if multiple bidders exist</span>
+            <div class="pi-bar"><div class="pi-fill med"></div></div>
+          </div>
+          <div class="profile-item">
+            <span class="pi-icon">🔍</span>
+            <span>Environmental flags on pre-1985 properties need Phase II</span>
+            <div class="pi-bar"><div class="pi-fill low"></div></div>
+          </div>
+        </div>
+        <div class="profile-section-label">Decision Patterns</div>
+        <div class="profile-items">
+          <div class="profile-item">
+            <span class="pi-icon">🧭</span>
+            <span>Escalation threshold: $50K+ variance or regulatory risk</span>
+            <div class="pi-bar"><div class="pi-fill high"></div></div>
+          </div>
+        </div>
+        <div class="profile-portable">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Portable — this knowledge travels with you
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════ -->
+<!-- Deep Dive: Teams                            -->
+<!-- ═══════════════════════════════════════════ -->
+<section class="deep org-bg" id="deep-teams">
+  <div class="deep-inner flip">
+    <div class="deep-text">
+      <h2 class="reveal">From "two weeks notice" to <em class="peach">complete handover</em></h2>
+      <p class="reveal">Your best people will leave. The question is whether they take everything with them or leave a structured record behind. RoleUp turns the chaotic last-minute knowledge dump into a systematic capture process any manager can run — no IT ticket, no six-month rollout.</p>
+      <ul class="deep-features">
+        <li class="deep-feature reveal">
+          <div class="df-icon peach">🎯</div>
+          <div><div class="df-title">Start with one role, expand from there</div><div class="df-desc">Pick your highest-risk departure. Run a capture session. See the knowledge gap materialize on screen. Most teams never go back to the old way.</div></div>
+        </li>
+        <li class="deep-feature reveal">
+          <div class="df-icon indigo">🔥</div>
+          <div><div class="df-title">Campfire Mode maps the space between roles</div><div class="df-desc">The most dangerous knowledge isn't in one person's head — it's in the handoffs, workarounds, and "just call Sarah" shortcuts between them. Campfire captures all of it.</div></div>
+        </li>
+        <li class="deep-feature reveal">
+          <div class="df-icon teal">⏱️</div>
+          <div><div class="df-title">Cut onboarding from months to weeks</div><div class="df-desc">New hires don't read a binder and figure it out. They get context-aware guidance from the accumulated intelligence of their predecessor — coaching in the water, not reading about swimming.</div></div>
+        </li>
+        <li class="deep-feature reveal">
+          <div class="df-icon amber">📈</div>
+          <div><div class="df-title">See what you'd lose before you lose it</div><div class="df-desc">The Organizational Logic Graph reveals how much undocumented knowledge lives in each role — so you can prioritize capture based on actual risk, not gut feel.</div></div>
+        </li>
+      </ul>
+      <a href="#waitlist-teams" class="deep-cta org reveal">Join the Team Waitlist →</a>
+    </div>
+    <!-- Mock: Team Capture Timeline UI -->
+    <div class="mock-ui reveal">
+      <div class="mock-titlebar">
+        <div class="mock-dot r"></div><div class="mock-dot y"></div><div class="mock-dot g"></div>
+        <span>roleup.me/team/acme-corp</span>
+      </div>
+      <div class="mock-body">
+        <div class="profile-section-label">Role Capture Progress — Asset Recovery</div>
+        <div class="capture-timeline">
+          <div class="ct-step">
+            <div class="ct-dot done"></div>
+            <div class="ct-content">
+              <div class="ct-title">Solo Capture: Sarah Mitchell</div>
+              <div class="ct-desc">5 sessions · 127 knowledge items extracted</div>
+              <div class="ct-badge done">✓ Complete</div>
+            </div>
+          </div>
+          <div class="ct-step">
+            <div class="ct-dot active"></div>
+            <div class="ct-content">
+              <div class="ct-title">Campfire: Cross-role handoffs</div>
+              <div class="ct-desc">Mapping procurement → asset recovery → compliance chain</div>
+              <div class="ct-team-row">
+                <div class="ct-mini-avatar" style="background:var(--teal);">SM</div>
+                <div class="ct-mini-avatar" style="background:var(--indigo); margin-left:-8px;">RP</div>
+                <div class="ct-mini-avatar" style="background:var(--amber); margin-left:-8px;">JT</div>
+              </div>
+              <div class="ct-badge active">● In Progress</div>
+            </div>
+          </div>
+          <div class="ct-step">
+            <div class="ct-dot pending"></div>
+            <div class="ct-content">
+              <div class="ct-title">Successor Onboarding: Marcus Chen</div>
+              <div class="ct-desc">Guided walkthrough of captured knowledge</div>
+              <div class="ct-badge pending">Queued</div>
+            </div>
+          </div>
+        </div>
+        <div class="ct-result">
+          <div class="ct-result-title">Knowledge Captured So Far</div>
+          <div class="ct-result-stats">
+            <div class="ct-stat">
+              <div class="ct-stat-num">127</div>
+              <div class="ct-stat-label">items</div>
+            </div>
+            <div class="ct-stat">
+              <div class="ct-stat-num">34</div>
+              <div class="ct-stat-label">heuristics</div>
+            </div>
+            <div class="ct-stat">
+              <div class="ct-stat-num">18</div>
+              <div class="ct-stat-label">relationships</div>
+            </div>
+            <div class="ct-stat">
+              <div class="ct-stat-num">67%</div>
+              <div class="ct-stat-label">role coverage</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Campfire -->
+<section class="campfire" id="campfire">
+  <div class="campfire-bg-blob"></div>
+  <div class="campfire-inner">
+    <div class="campfire-text">
+      <h2 class="reveal">The best knowledge lives <span>between</span> people</h2>
+      <p class="reveal">Solo capture gets individual expertise. But the most valuable knowledge — the handoffs, coordination patterns, and shared heuristics — lives between roles. Campfire Mode gathers the team to capture it together.</p>
+      <div class="cf-modes">
+        <div class="cf-mode reveal">
+          <div class="cf-mode-icon capture">🔥</div>
+          <div><div class="cf-mode-title">Capture</div><div class="cf-mode-desc">Map how the team actually works — before a departure</div></div>
+        </div>
+        <div class="cf-mode reveal">
+          <div class="cf-mode-icon onboard">🎓</div>
+          <div><div class="cf-mode-title">Onboarding</div><div class="cf-mode-desc">Bring new arrivals into the circle with guided team walkthroughs</div></div>
+        </div>
+        <div class="cf-mode reveal">
+          <div class="cf-mode-icon ongoing">🔄</div>
+          <div><div class="cf-mode-title">Ongoing</div><div class="cf-mode-desc">Periodic check-ins that catch process drift before it causes problems</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="cf-visual reveal">
+      <div class="cf-pulse-ring"></div>
+      <div class="cf-pulse-ring d2"></div>
+      <div class="cf-pulse-ring d3"></div>
+      <div class="cf-ring">
+        <div class="cf-person">SM</div>
+        <div class="cf-person">RP</div>
+        <div class="cf-person">MC</div>
+      </div>
+      <div class="cf-center"><span>OLG</span></div>
+      <div class="cf-legend">
+        <div class="cf-legend-item">
+          <div class="cf-legend-dot" style="background: var(--teal);"></div>
+          <div><div class="cf-legend-name">Sarah M.</div><div class="cf-legend-role">Sr. Asset Recovery</div></div>
+        </div>
+        <div class="cf-legend-item">
+          <div class="cf-legend-dot" style="background: var(--indigo);"></div>
+          <div><div class="cf-legend-name">Raj P.</div><div class="cf-legend-role">Procurement Lead</div></div>
+        </div>
+        <div class="cf-legend-item">
+          <div class="cf-legend-dot" style="background: #C84A20;"></div>
+          <div><div class="cf-legend-name">Marcus C.</div><div class="cf-legend-role">New Hire</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Book -->
+<section class="book" id="book">
+  <div class="book-blob"></div>
+  <div class="book-inner">
+    <div class="book-cover-wrap reveal" style="position:relative;">
+      <div class="book-badge">FREE</div>
+      <iframe src="https://soul-book-cover.vercel.app/" class="book-cover-iframe" title="Soul for the New Machines — Book Cover" scrolling="no" frameborder="0"></iframe>
+    </div>
+    <div class="book-text">
+      <h2 class="reveal">The playbook for the problem <em>everyone knows</em> and nobody talks about</h2>
+      <p class="reveal">This book names the crisis, defines the category of Role Continuity, and introduces Campfire Mode — the shift from event-triggered knowledge capture to continuous team intelligence. For leaders who've watched a key person leave and felt the aftershocks for months.</p>
+      <div class="book-quote reveal">
+        <p>"The department wasn't failing because of its people. It was failing because twenty-three years of accumulated intelligence had walked out the door in a cake-and-a-card ceremony."</p>
+        <cite>— From the Introduction</cite>
+      </div>
+      <div class="reveal">
+        <a href="#waitlist-teams" class="book-cta">
+          Get Your Free Copy
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <p style="font-size: 12px; color: var(--text-light); margin-top: 8px;">Join the team waitlist below — your free copy comes with it</p>
+        <div class="book-meta">
+          <span>📖 ~60 pages</span>
+          <span>⏱ 90 min read</span>
+          <span>📄 PDF &amp; EPUB</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave into privacy -->
+<div class="wave-divider">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none">
+    <path d="M0,24 C240,48 480,0 720,24 C960,48 1200,0 1440,24 L1440,48 L0,48 Z" fill="#FFFFFF"/>
+  </svg>
+</div>
+
+<!-- Privacy -->
+<section class="privacy">
+  <div class="privacy-inner reveal">
+    <div class="privacy-icon">🛡️</div>
+    <div>
+      <h3>You're in control. Always.</h3>
+      <p>Everything you capture stays in your private draft until you explicitly approve it. Your professional knowledge is yours — portable, private, and protected. Your organization's knowledge stays with the organization. Clear boundaries, no surprises.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Wave out of privacy -->
+<div class="wave-divider wave-up">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none">
+    <path d="M0,24 C360,0 720,48 1080,24 C1260,12 1380,36 1440,24 L1440,48 L0,48 Z" fill="#FFFFFF"/>
+  </svg>
+</div>
+
+<!-- Final CTA -->
+<section class="final" id="waitlist">
+  <h2 class="reveal">Knowledge is leaving <em>every day.</em><br>Start capturing it.</h2>
+  <p class="reveal">Join the waitlist. Be first to build your professional knowledge profile or protect your team's expertise.</p>
+  <div class="final-cards">
+    <div class="final-card reveal" id="waitlist-individual">
+      <div class="fc-icon ind">👤</div>
+      <h3>For Individuals</h3>
+      <p>Build a knowledge profile that finally captures what you actually know. Free forever.</p>
+      <form action="https://abraxis.us22.list-manage.com/subscribe/post?u=MAILCHIMP_U&amp;id=MAILCHIMP_ID_INDIVIDUAL" method="post" class="mc-form" id="mc-individual" target="_blank" novalidate>
+        <div class="fc-input-row">
+          <input type="email" name="EMAIL" class="fc-input" placeholder="your@email.com" required>
+          <button type="submit" class="fc-btn ind">Join</button>
+        </div>
+        <input type="hidden" name="SIGNUP" value="individual">
+        <input type="hidden" name="SOURCE" value="roleup.me">
+        <div style="position:absolute;left:-5000px;" aria-hidden="true"><input type="text" name="b_MAILCHIMP_U_MAILCHIMP_ID_INDIVIDUAL" tabindex="-1" value=""></div>
+      </form>
+      <div class="fc-confirm" id="confirm-ind" style="display:none;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>You're on the list! We'll be in touch soon.</span>
+      </div>
+      <div class="fc-note">🛡 No spam. No sales calls. Your data stays yours.</div>
+    </div>
+    <div class="final-card reveal" id="waitlist-teams">
+      <div class="fc-icon org">👥</div>
+      <h3>For Teams</h3>
+      <p>Stop losing what your people know. Join the waitlist and get the free book on Role Continuity.</p>
+      <form action="https://abraxis.us22.list-manage.com/subscribe/post?u=MAILCHIMP_U&amp;id=MAILCHIMP_ID_TEAMS" method="post" class="mc-form" id="mc-teams" target="_blank" novalidate>
+        <div class="org-form-grid">
+          <input type="text" name="FNAME" class="org-field" placeholder="First name" required>
+          <input type="text" name="LNAME" class="org-field" placeholder="Last name" required>
+          <input type="email" name="EMAIL" class="org-field full" placeholder="Work email" required>
+          <input type="text" name="COMPANY" class="org-field" placeholder="Company">
+          <input type="text" name="TITLE" class="org-field" placeholder="Title / Role">
+        </div>
+        <button type="submit" class="org-submit">Join the Waitlist</button>
+        <input type="hidden" name="SIGNUP" value="team">
+        <input type="hidden" name="SOURCE" value="roleup.me">
+        <input type="hidden" name="BOOK" value="yes">
+        <div style="position:absolute;left:-5000px;" aria-hidden="true"><input type="text" name="b_MAILCHIMP_U_MAILCHIMP_ID_TEAMS" tabindex="-1" value=""></div>
+      </form>
+      <div class="fc-confirm" id="confirm-team" style="display:none;">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        <span>You're on the list! Your free copy of <em>Soul for the New Machines</em> is on the way.</span>
+      </div>
+      <div class="fc-book-bonus">🎁 <span>Includes free PDF &amp; EPUB of <em>Soul for the New Machines</em></span></div>
+      <div class="fc-note">Early access opening soon. No spam. No sales calls.</div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-logo"><span class="role">role</span><span class="up">up</span></div>
+  <div class="footer-by">by ABRAXIS</div>
+  <div class="footer-links">
+    <a href="https://abraxis.io" target="_blank">ABRAXIS</a>
+    <a href="https://thehumanlayer.substack.com" target="_blank">Blog</a>
+    <a href="mailto:chris@abraxis.ai">Contact</a>
+    <a href="https://chatgpt.com/g/g-6994c336f1b88191b39f7f8cfee607c5-role-continuity-assessment" target="_blank">Free Assessment</a>
+  </div>
+  <div class="footer-copy">The Whole Enterprise Truth. &copy; 2026 ABRAXIS Inc. &middot; San Francisco, CA</div>
+</footer>
+
+<script>
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// Scroll reveal
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+// Stagger reveals within grid containers
+document.querySelectorAll('.aud-grid, .how-steps, .final-cards, .deep-features').forEach(container => {
+  const children = container.querySelectorAll('.reveal');
+  children.forEach((child, i) => { child.style.transitionDelay = `${i * 0.12}s`; });
+});
+
+// Mailchimp form handling
+document.querySelectorAll('.mc-form').forEach(form => {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const emailInput = this.querySelector('input[type="email"]');
+    const email = emailInput.value.trim();
+    const btn = this.querySelector('button[type="submit"]');
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      emailInput.style.borderColor = '#C4384B';
+      emailInput.focus();
+      return;
+    }
+    const originalText = btn.innerHTML;
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span>';
+    const iframeName = 'mc-iframe-' + Date.now();
+    const iframe = document.createElement('iframe');
+    iframe.name = iframeName; iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    this.target = iframeName;
+    this.submit();
+    setTimeout(() => {
+      const formId = this.id;
+      let confirmEl;
+      if (formId === 'mc-individual') confirmEl = document.getElementById('confirm-ind');
+      else if (formId === 'mc-teams') confirmEl = document.getElementById('confirm-team');
+      const formGrid = this.querySelector('.fc-input-row, .org-form-grid');
+      if (formGrid) formGrid.style.display = 'none';
+      if (btn) btn.style.display = 'none';
+      if (confirmEl) confirmEl.style.display = 'flex';
+      btn.disabled = false; btn.innerHTML = originalText;
+      setTimeout(() => { iframe.remove(); }, 5000);
+    }, 1500);
+  });
+});
+document.querySelectorAll('.mc-form input').forEach(input => {
+  input.addEventListener('focus', function() { this.style.borderColor = ''; });
+});
+</script>
+</body>
+</html>
