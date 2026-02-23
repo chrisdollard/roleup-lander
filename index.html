@@ -1586,10 +1586,14 @@ document.querySelectorAll('.aud-grid, .how-steps, .final-cards, .deep-features')
   children.forEach((child, i) => { child.style.transitionDelay = `${i * 0.12}s`; });
 });
 
-// Mailchimp form handling
+// Mailchimp form handling — iframe POST method
 document.querySelectorAll('.mc-form').forEach(form => {
+  let submitting = false;
   form.addEventListener('submit', function(e) {
+    // Allow the native re-submit to pass through
+    if (submitting) return;
     e.preventDefault();
+
     const emailInput = this.querySelector('input[type="email"]');
     const email = emailInput.value.trim();
     const btn = this.querySelector('button[type="submit"]');
@@ -1603,39 +1607,34 @@ document.querySelectorAll('.mc-form').forEach(form => {
     btn.innerHTML = '<span class="spinner"></span>';
     const formId = this.id;
 
-    // Build Mailchimp URL with form data
-    const formData = new FormData(this);
-    const params = new URLSearchParams(formData).toString();
-    const action = this.action.replace('/subscribe/post', '/subscribe/post-json') + '&' + params + '&c=mcCallback';
+    // Create hidden iframe target
+    const iframeName = 'mc-iframe-' + Date.now();
+    const iframe = document.createElement('iframe');
+    iframe.name = iframeName;
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
 
-    // JSONP submission (more reliable than iframe for cross-origin)
-    const script = document.createElement('script');
-    script.src = action;
-    document.body.appendChild(script);
+    // Point form at iframe and submit as native POST
+    this.target = iframeName;
+    submitting = true;
+    this.submit();
+    submitting = false;
 
-    // Define callback
-    window.mcCallback = function(response) {
-      script.remove();
-      delete window.mcCallback;
-
+    // After submission completes, handle UX
+    setTimeout(() => {
       if (formId === 'mc-teams') {
         window.location.href = 'https://www.abraxis.io/book-download.html';
         return;
       }
       // Individual → inline confirmation
       const confirmEl = document.getElementById('confirm-ind');
-      const formGrid = form.querySelector('.fc-input-row');
+      const formGrid = this.querySelector('.fc-input-row');
       if (formGrid) formGrid.style.display = 'none';
       if (btn) btn.style.display = 'none';
       if (confirmEl) confirmEl.style.display = 'flex';
-    };
-
-    // Fallback timeout in case JSONP doesn't fire
-    setTimeout(() => {
-      if (window.mcCallback) {
-        window.mcCallback({ result: 'success' });
-      }
-    }, 4000);
+      btn.disabled = false; btn.innerHTML = originalText;
+      setTimeout(() => { iframe.remove(); }, 5000);
+    }, 2000);
   });
 });
 document.querySelectorAll('.mc-form input').forEach(input => {
