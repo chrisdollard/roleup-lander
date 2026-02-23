@@ -1544,10 +1544,6 @@ footer {
         <input type="hidden" name="MMERGE5" value="roleup.me">
         <div style="position:absolute;left:-5000px;" aria-hidden="true"><input type="text" name="b_57e45faf2c1535476eac4d3f3_38ee67e43b" tabindex="-1" value=""></div>
       </form>
-      <div class="fc-confirm" id="confirm-team" style="display:none;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--teal)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>You're on the list! Your free copy of <em>Soul for the New Machines</em> is on the way.</span>
-      </div>
       <div class="fc-book-bonus">🎁 <span>Includes free PDF &amp; EPUB of <em>Soul for the New Machines</em></span></div>
       <div class="fc-note">Early access opening soon. No spam. No sales calls.</div>
     </div>
@@ -1611,10 +1607,16 @@ document.querySelectorAll('.mc-form').forEach(form => {
     this.submit();
     setTimeout(() => {
       const formId = this.id;
-      let confirmEl;
-      if (formId === 'mc-individual') confirmEl = document.getElementById('confirm-ind');
-      else if (formId === 'mc-teams') confirmEl = document.getElementById('confirm-team');
-      const formGrid = this.querySelector('.fc-input-row, .org-form-grid');
+
+      if (formId === 'mc-teams') {
+        // Team signup → redirect to book download page
+        window.location.href = 'https://www.abraxis.io/book-download.html';
+        return;
+      }
+
+      // Individual signup → inline confirmation
+      let confirmEl = document.getElementById('confirm-ind');
+      const formGrid = this.querySelector('.fc-input-row');
       if (formGrid) formGrid.style.display = 'none';
       if (btn) btn.style.display = 'none';
       if (confirmEl) confirmEl.style.display = 'flex';
