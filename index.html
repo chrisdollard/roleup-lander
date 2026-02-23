@@ -1513,7 +1513,7 @@ footer {
       <div class="fc-icon ind">👤</div>
       <h3>For Individuals</h3>
       <p>Build a knowledge profile that finally captures what you actually know. Free forever.</p>
-      <form action="https://abraxis.us22.list-manage.com/subscribe/post?u=57e45faf2c1535476eac4d3f3&amp;id=38ee67e43b" method="post" class="mc-form" id="mc-individual" target="_blank" novalidate>
+      <form action="https://abraxis.us20.list-manage.com/subscribe/post?u=57e45faf2c1535476eac4d3f3&amp;id=38ee67e43b&amp;f_id=006519e0f0" method="post" class="mc-form" id="mc-individual" target="_blank" novalidate>
         <div class="fc-input-row">
           <input type="email" name="EMAIL" class="fc-input" placeholder="your@email.com" required>
           <button type="submit" class="fc-btn ind">Join</button>
@@ -1532,7 +1532,7 @@ footer {
       <div class="fc-icon org">👥</div>
       <h3>For Teams</h3>
       <p>Stop losing what your people know. Join the waitlist and get the free book on Role Continuity.</p>
-      <form action="https://abraxis.us22.list-manage.com/subscribe/post?u=57e45faf2c1535476eac4d3f3&amp;id=38ee67e43b" method="post" class="mc-form" id="mc-teams" target="_blank" novalidate>
+      <form action="https://abraxis.us20.list-manage.com/subscribe/post?u=57e45faf2c1535476eac4d3f3&amp;id=38ee67e43b&amp;f_id=006519e0f0" method="post" class="mc-form" id="mc-teams" target="_blank" novalidate>
         <div class="org-form-grid">
           <input type="text" name="FNAME" class="org-field" placeholder="First name" required>
           <input type="text" name="LNAME" class="org-field" placeholder="Last name" required>
@@ -1541,8 +1541,9 @@ footer {
           <input type="text" name="TITLE" class="org-field" placeholder="Title / Role">
         </div>
         <button type="submit" class="org-submit">Join the Waitlist</button>
-        <input type="hidden" name="MMERGE7" value="team-book">
+        <input type="hidden" name="MMERGE7" value="team">
         <input type="hidden" name="MMERGE5" value="roleup.me">
+        <input type="hidden" name="MMERGE8" value="yes">
         <div style="position:absolute;left:-5000px;" aria-hidden="true"><input type="text" name="b_57e45faf2c1535476eac4d3f3_38ee67e43b" tabindex="-1" value=""></div>
       </form>
       <div class="fc-book-bonus">🎁 <span>Includes free PDF &amp; EPUB of <em>Soul for the New Machines</em></span></div>
@@ -1600,30 +1601,41 @@ document.querySelectorAll('.mc-form').forEach(form => {
     const originalText = btn.innerHTML;
     btn.disabled = true;
     btn.innerHTML = '<span class="spinner"></span>';
-    const iframeName = 'mc-iframe-' + Date.now();
-    const iframe = document.createElement('iframe');
-    iframe.name = iframeName; iframe.style.display = 'none';
-    document.body.appendChild(iframe);
-    this.target = iframeName;
-    this.submit();
-    setTimeout(() => {
-      const formId = this.id;
+    const formId = this.id;
+
+    // Build Mailchimp URL with form data
+    const formData = new FormData(this);
+    const params = new URLSearchParams(formData).toString();
+    const action = this.action.replace('/subscribe/post', '/subscribe/post-json') + '&' + params + '&c=mcCallback';
+
+    // JSONP submission (more reliable than iframe for cross-origin)
+    const script = document.createElement('script');
+    script.src = action;
+    document.body.appendChild(script);
+
+    // Define callback
+    window.mcCallback = function(response) {
+      script.remove();
+      delete window.mcCallback;
 
       if (formId === 'mc-teams') {
-        // Team signup → redirect to book download page
         window.location.href = 'https://www.abraxis.io/book-download.html';
         return;
       }
-
-      // Individual signup → inline confirmation
-      let confirmEl = document.getElementById('confirm-ind');
-      const formGrid = this.querySelector('.fc-input-row');
+      // Individual → inline confirmation
+      const confirmEl = document.getElementById('confirm-ind');
+      const formGrid = form.querySelector('.fc-input-row');
       if (formGrid) formGrid.style.display = 'none';
       if (btn) btn.style.display = 'none';
       if (confirmEl) confirmEl.style.display = 'flex';
-      btn.disabled = false; btn.innerHTML = originalText;
-      setTimeout(() => { iframe.remove(); }, 5000);
-    }, 1500);
+    };
+
+    // Fallback timeout in case JSONP doesn't fire
+    setTimeout(() => {
+      if (window.mcCallback) {
+        window.mcCallback({ result: 'success' });
+      }
+    }, 4000);
   });
 });
 document.querySelectorAll('.mc-form input').forEach(input => {
